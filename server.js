@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const port = 3000;
 const app = express();
+require('dotenv').config();
 
 app.use(require('cors')());
 app.use(express.json());
@@ -20,7 +21,6 @@ app.post('/send', upload.single('anexo'), (req, res, next) => {
   .catch(error => res.status(500).json(error))
 
 });
-
 
 app.use(express.static(path.join(__dirname, 'build')));
 

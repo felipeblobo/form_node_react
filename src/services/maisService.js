@@ -1,33 +1,30 @@
 const mailer = require('nodemailer');
+require('dotenv').config();
 
-module.exports = async (email, nome, mensagem, telefone, anexo) => {
-
-  const testAccount = await nodemailer.createTestAccount(); 
-
-
+module.exports = (email, nome, telefone, mensagem, anexo) => {
   const smtp = mailer.createTransport({
-    host: 'smtp.ethereal.email',
+    host: 'smtp.live.com',
     port: 587,
     secure: false,
     auth: {
-        user: testAccount.user, 
-        pass: testAccount.pass, 
+      user: 'gabirulobo@hotmail.com',
+      pass: process.env.PASS
     },
   });
 
   const mail = {
-    from: 'smtp.ethereal.email',
-    to: 'felipe.lobo@sema.ba.gov.br',
+    from: 'gabirulobo@hotmail.com',
+    to: email,
+    telefone: telefone,
     subject: `Email enviado por ${nome}`,
-    text: mensagem,
-    telefone: telefone
+    text: mensagem
   };
 
   if (anexo) {
     mail.attachments = [];
     mail.attachments.push({
       filename: anexo.originalname,
-      content: anexo.buffer,
+      content: anexo.buffer
     });
   }
 
@@ -35,10 +32,12 @@ module.exports = async (email, nome, mensagem, telefone, anexo) => {
     smtp
       .sendMail(mail)
       .then((response) => {
+        console.log('email enviado');
         smtp.close();
         return resolve(response);
       })
       .catch((error) => {
+        console.log('email não enviado');
         smtp.close();
         return reject(error);
       });
