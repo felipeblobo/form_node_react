@@ -48,7 +48,7 @@ function Form() {
         headers: {
           'Content-type':`multipart/form-data; boundary=${formData._boundary}`
         }
-    }).then(response => alert(JSON.stringify(response.data)));
+    }).then(response => alert("Sua mensagem foi enviada com sucesso!"));
   }
 
   return (
