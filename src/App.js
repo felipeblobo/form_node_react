@@ -10,7 +10,7 @@ function App() {
     <div id='main'>
       <Header />
       <div id='relative'>
-        <h1 className="mainTitle">Faça seu contato!</h1>
+        <h1 className="mainTitle">Faça contato conosco!</h1>
         <div className="container">
         <Form />
         </div>
