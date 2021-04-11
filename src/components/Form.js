@@ -10,8 +10,10 @@ function Form() {
     telefone: '',
     mensagem: '',
     anexo: '',
-  });
   
+  });
+
+ 
   function handleInputChange(event) {
     if (event.target.name === 'anexo') {
       campos[event.target.name] = event.target.files[0];
@@ -22,7 +24,21 @@ function Form() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    send();
+    if (campos.nome === '') {
+      return alert('Preencha o campo de nome!');
+    }
+    else if (campos.email === '') {
+      return alert('Preencha o campo de email!');
+    }
+    else if (campos.telefone === '') {
+      return alert('Preencha o campo de telefone!');
+    }
+    else if (campos.mensagem === '') {
+      return alert('Preencha uma mensagem!');
+    }
+    console.log(campos.mensagem);
+
+     send();
   }
 
   function send() {
@@ -36,7 +52,9 @@ function Form() {
   }
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    
+
+      <form onSubmit={handleFormSubmit}>
       <label htmlFor="nome">Nome</label>
       <input name="nome" type="text" id="nome" onChange={handleInputChange}/>
       <label htmlFor="email">Email</label>
@@ -50,7 +68,7 @@ function Form() {
       <label htmlFor="telefone">Telefone</label>
       <input
         name="telefone"
-        type="text"
+        type="number"
         id="telefone"
         placeholder="DDD999999999"
         onChange={handleInputChange}

@@ -7,9 +7,11 @@ function App() {
   
   return (
     <div id='main'>
-      <h1 className="mainTitle">Faça seu contato!</h1>
-      <div className="container">
-      <Form />
+      <div id='absolute'>
+        <h1 className="mainTitle">Faça seu contato!</h1>
+        <div className="container">
+        <Form />
+      </div>
       </div>
       <Footer />
     </div>
