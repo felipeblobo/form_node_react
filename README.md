@@ -3,7 +3,13 @@
 
 #### O formulário permite o disparo de email para o proprietário da plataforma.
 
-![alt text](https://i.imgur.com/xCSEiX8.png)
+![alt text](https://i.imgur.com/xCSEiX8.png) | width=150
+
+###Mobile:
+
+<p align="center">
+  <img src="https://i.imgur.com/Q1yGJDN.png?1" />
+</p>
 
 ## Frontend_
 
