@@ -3,6 +3,8 @@
 
 #### O formulário permite o disparo de email para o proprietário da plataforma.
 
+![alt text](https://i.imgur.com/xCSEiX8.png)
+
 ## Frontend_
 
 Feito em React.
